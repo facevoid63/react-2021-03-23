@@ -5,6 +5,7 @@ import {
   ADD_REVIEW,
   LOAD_RESTAURANTS,
   LOAD_REVIEWS,
+  LOAD_PRODUCTS,
   REQUEST,
   SUCCESS,
   FAILURE,
@@ -24,6 +25,12 @@ export const addReview = (review, restaurantId) => ({
 export const loadRestaurants = () => ({
   type: LOAD_RESTAURANTS,
   CallAPI: '/api/restaurants',
+});
+
+export const loadProducts = (restId) => ({
+  type: LOAD_PRODUCTS,
+  CallAPI: `/api/products?id=${restId}`,
+  restId,
 });
 
 export const loadReviews = (restaurantId) => async (dispatch) => {
